@@ -1,0 +1,27 @@
+set terminal pdf enhanced color size 6.0in,4.0in
+set output "plot.pdf"
+
+set style line 1 lc 'red'     lt 1 lw 1
+set style line 2 lc 'green'   lt 1 lw 1
+set style line 3 lc 'blue'    lt 1 lw 1
+set style line 4 lc 'magenta' lt 1 lw 1
+set style line 5 lc 'orange'  lt 1 lw 1
+set style line 6 lc 'cyan'    lt 1 lw 1
+
+set xlabel "Time"
+set ylabel "Time-dependent function"
+
+set key spacing 1.5
+set format y "%.1f"
+
+#set xrange [0:10]
+set yrange [0:3.5]
+
+plot "data.dat" u 3:4 w l ls 1 title "C_v",   \
+     ""         u 3:5 w l ls 2 title "C_i",   \
+     ""         u 3:6 w l ls 3 title "C_{2i}",  \
+     ""         u 3:7 w l ls 4 title "{/Symbol r}_N", \
+     ""         u 3:8 w l ls 5 title "C_I",   \
+     ""         u 3:9 w l ls 6 title "d_I"
+
+
